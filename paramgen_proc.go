@@ -8,53 +8,23 @@ import (
 )
 
 const (
-	ProcessorConfigConnectionString = "connectionString"
-	ProcessorConfigDriver           = "driver"
-	ProcessorConfigFields           = "fields"
-	ProcessorConfigMode             = "mode"
-	ProcessorConfigOutputField      = "outputField"
-	ProcessorConfigQuery            = "query"
+	ProcessorConfigField     = "field"
+	ProcessorConfigThreshold = "threshold"
 )
 
 func (ProcessorConfig) Parameters() map[string]config.Parameter {
 	return map[string]config.Parameter{
-		ProcessorConfigConnectionString: {
+		ProcessorConfigField: {
 			Default:     "",
-			Description: "Database connection string",
+			Description: "Field is the target field that will be set",
 			Type:        config.ParameterTypeString,
 			Validations: []config.Validation{},
 		},
-		ProcessorConfigDriver: {
-			Default:     "postgres",
-			Description: "SQL driver to use",
-			Type:        config.ParameterTypeString,
-			Validations: []config.Validation{},
-		},
-		ProcessorConfigFields: {
+		ProcessorConfigThreshold: {
 			Default:     "",
-			Description: "Fields to extract from record",
-			Type:        config.ParameterTypeString,
+			Description: "Threshold is the threshold for filtering the record",
+			Type:        config.ParameterTypeInt,
 			Validations: []config.Validation{},
-		},
-		ProcessorConfigMode: {
-			Default:     "transform",
-			Description: "Processing mode",
-			Type:        config.ParameterTypeString,
-			Validations: []config.Validation{},
-		},
-		ProcessorConfigOutputField: {
-			Default:     "sql_result",
-			Description: "Output field for enrichment mode",
-			Type:        config.ParameterTypeString,
-			Validations: []config.Validation{},
-		},
-		ProcessorConfigQuery: {
-			Default:     "",
-			Description: "SQL query to execute",
-			Type:        config.ParameterTypeString,
-			Validations: []config.Validation{
-				config.ValidationRequired{},
-			},
 		},
 	}
 }
