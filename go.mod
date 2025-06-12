@@ -3,7 +3,7 @@ module github.com/devarispbrown/conduit-processor-sql
 go 1.24.2
 
 require (
-	github.com/conduitio/conduit-commons v0.5.4
+	github.com/conduitio/conduit-commons v0.6.0
 	github.com/conduitio/conduit-processor-sdk v0.4.4
 )
 
